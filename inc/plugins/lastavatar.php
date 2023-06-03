@@ -139,7 +139,7 @@ function lastavatar_forumbit(&$forum){
     // Gäste
     $guest_setting =  $mybb->settings['lastavatar_guest'];
     // Spezielle Accounts
-    $specialavas_setting =  $mybb->settings['lastavatar_specialavas'];
+    $specialavas_setting = str_replace(", ", ",", $mybb->settings['lastavatar_specialavas']);
 
     // UMLAUTE UMFORMEN
     $tempstr = Array("Ä" => "AE", "Ö" => "OE", "Ü" => "UE", "ä" => "ae", "ö" => "oe", "ü" => "ue", "ß" => "ss");
