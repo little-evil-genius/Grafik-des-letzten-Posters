@@ -15,7 +15,7 @@ function lastgraphic_info(){
 	return array(
 		"name"		=> "Grafik des letzten Posters",
 		"description"	=> "Erweitert die Informationen vom letzten Poster um eine Grafikanzeige.",
-		'website'	=> 'https://github.com/little-evil-genius/Grafik-des-letzten-Posters',
+		'website'		=> 'https://github.com/little-evil-genius/Grafik-des-letzten-Posters',
 		"author"	=> "little.evil.genius",
 		"authorsite"	=> "https://storming-gates.de/member.php?action=profile&uid=1712",
 		"version"	=> "1.0",
@@ -339,7 +339,7 @@ function lastgraphic_thread() {
     // Grafiktyp
     $graphictyp = $mybb->settings['lastgraphic_graphic'];
     // Uploadsystem
-    $uploadsystem_graphic = $mybb->settings['lastgraphic_graphic'];
+    $uploadsystem_graphic = $mybb->settings['lastgraphic_uploadsystem'];
     // Profilfeld
     $profilefield_graphic = $mybb->settings['lastgraphic_profilefield'];
     // Steckifeld
