@@ -1,7 +1,4 @@
 <?php
-error_reporting(1);
-ini_set('display_errors', true);
-// error_reporting();
 // Direktzugriff auf die Datei aus Sicherheitsgründen sperren
 if(!defined("IN_MYBB")){
 	die("Direct initialization of this file is not allowed.<br /><br />Please make sure IN_MYBB is defined.");
@@ -88,7 +85,7 @@ function lastgraphic_install(){
         'lastgraphic_specialgraphic' => array(
             'title' => 'spezielle Accounts',
             'description' => 'Gib es Accounts, wo sich die Grafik sich je nach Design verändern ändern soll? Wie der Admin-Account oder ein NPC-Account. Liste hier die UIDs mit einem , auf. Falls nicht benötigt einfach frei lassen.<br>
-			<b>Wichtig</b> Der Dateiname für die Grafik wird aus dem Accountnamen gezogen. z.B. "Admin" -> admin oder "The Devil" -> thedevil. PNG, JPG, JPEG und GIF sind als Dateiformat möglich. Umlaute und ß werden umgeformt. ` oder \' werden entfernt.',
+			<b>Wichtig</b> Der Dateiname für die Grafik wird aus dem Accountnamen gezogen. z.B. "Admin" -> admin oder "The Devil" -> thedevil. PNG, JPG, JPEG und GIF sind als Dateiformat möglich. Umlaute und ß werden umgeformt. ` oder \\\' werden entfernt.',
             'optionscode' => 'text',
             'value' => '1,2', // Default
             'disporder' => 7
@@ -210,7 +207,7 @@ function lastgraphic_forumbit(&$forum){
     // Grafiktyp
     $graphictyp = $mybb->settings['lastgraphic_graphic'];
     // Uploadsystem
-    $uploadsystem_graphic = $mybb->settings['lastgraphic_graphic'];
+    $uploadsystem_graphic = $mybb->settings['lastgraphic_uploadsystem'];
     // Profilfeld
     $profilefield_graphic = $mybb->settings['lastgraphic_profilefield'];
     // Steckifeld
@@ -288,7 +285,7 @@ function lastgraphic_forumbit(&$forum){
                         $lastgraphic = $lastpost['avatar'];
                     } 
                     // Uploadsystem
-                    else if ($graphictyp == 1) {	
+                    else if ($graphictyp == 1) {
                         $path = $db->fetch_field($db->simple_select("uploadsystem", "path", "identification = '".$uploadsystem_graphic."'"), "path");                  
                         $value = $db->fetch_field($db->simple_select("uploadfiles", $uploadsystem_graphic, "ufid = '".$lastposteruid."'"), $uploadsystem_graphic);
 
