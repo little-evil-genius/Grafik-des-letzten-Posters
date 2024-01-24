@@ -21,8 +21,8 @@ Das Plugin ist kompatibel mit den klassischen Profilfeldern von MyBB, dem <a hre
 -  forumdisplay_thread_lastpost_graphic (Forum Display Templates)
 
 # Neue Variable
-- forumbit_depth2_forum_lastpost: {$forum['lastavatar']}
-- forumdisplay_thread: {$thread['lastavatar']}
+- forumbit_depth2_forum_lastpost: {$forum['lastgraphic']}
+- forumdisplay_thread: {$thread['lastgraphic']}
 
 # Demo
 <img src="https://stormborn.at/plugins/lastgraphic_settings.png">
