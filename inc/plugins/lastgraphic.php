@@ -15,7 +15,7 @@ function lastgraphic_info(){
 	return array(
 		"name"		=> "Grafik des letzten Posters",
 		"description"	=> "Erweitert die Informationen vom letzten Poster um eine Grafikanzeige.",
-		'website'		=> 'https://github.com/little-evil-genius/Grafik-des-letzten-Posters',
+		'website'	=> 'https://github.com/little-evil-genius/Grafik-des-letzten-Posters',
 		"author"	=> "little.evil.genius",
 		"authorsite"	=> "https://storming-gates.de/member.php?action=profile&uid=1712",
 		"version"	=> "1.0",
@@ -70,30 +70,30 @@ function lastgraphic_install(){
 		),
 		'lastgraphic_defaultgraphic' => array(
 			'title' => 'Standard-Grafik',
-            'description' => 'Wie heißt die Bilddatei für die Standard-Grafik? Diese Grafik wird falls ein Mitglied noch keine entsprechende Grafik besitzt stattdessen angezeigt. Damit die Grafik für jedes Design angepasst wird, sollte der Dateiname in allen Ordner für die Designs gleich heißen.',
+            'description' => 'Wie heißt die Bilddatei für die Standard-Grafik? Diese Grafik wird, falls ein Mitglied noch keine entsprechende Grafik besitzt, stattdessen angezeigt. Damit die Grafik für jedes Design angepasst wird, sollte der Dateiname in allen Ordner für die Designs gleich heißen.',
             'optionscode' => 'text',
             'value' => 'default_avatar.png', // Default
             'disporder' => 5
 		),
         'lastgraphic_guest' => array(
-            'title' => 'Gäste Ansicht',
-            'description' => 'Sollen die Grafik vor Gästen versteckt werden? Statt der Grafik wird der festgelegte Standard-Grafik angezeigt.',
+            'title' => 'Gäste-Ansicht',
+            'description' => 'Sollen die Grafik vor Gästen versteckt werden? Statt der Grafik wird die festgelegte Standard-Grafik angezeigt.',
             'optionscode' => 'yesno',
             'value' => '1', // Default
             'disporder' => 6
         ),
         'lastgraphic_specialgraphic' => array(
-            'title' => 'spezielle Accounts',
-            'description' => 'Gib es Accounts, wo sich die Grafik sich je nach Design verändern ändern soll? Wie der Admin-Account oder ein NPC-Account. Liste hier die UIDs mit einem , auf. Falls nicht benötigt einfach frei lassen.<br>
-			<b>Wichtig</b> Der Dateiname für die Grafik wird aus dem Accountnamen gezogen. z.B. "Admin" -> admin oder "The Devil" -> thedevil. PNG, JPG, JPEG und GIF sind als Dateiformat möglich. Umlaute und ß werden umgeformt. ` oder \\\' werden entfernt.',
+            'title' => 'Spezielle Accounts',
+            'description' => 'Gibt es Accounts, wo sich die Grafik je nach Design verändern soll? Wie zum Beispiel der Admin-Account oder ein NPC-Account. Liste hier die UIDs mit einem , auf. Falls nicht benötigt einfach frei lassen.<br>
+<b>Wichtig</b> Der Dateiname für die Grafik wird aus dem Accountnamen gezogen. z.B. "Admin" -> admin oder "The Devil" -> thedevil. PNG, JPG, JPEG und GIF sind als Dateiformat möglich. Umlaute und ß werden umgeformt. ` oder \\\' werden entfernt.',
             'optionscode' => 'text',
             'value' => '1,2', // Default
             'disporder' => 7
         ),
         'lastgraphic_specialetters' => array(
             'title' => 'spezielle Buchstaben',
-            'description' => 'Die gängiste Umlaute ä,ö und ü sowie das ß werden schon standarmäßig umgeformt. Doch gibt es noch weitere Buchstaben, die nicht im deutschen Alphabeth vorkommen. Falls einer der angegeben speziellen Accounts solche Buchstaben besitzt, müssen die auch auch umgeformt werden. Hier werden die einzelnen Buchstaben definiert. Wenn nicht vorhanden, dann frei lassen.<br>
-            Folgendes Schema: å = a; ó = o; ð = d',
+            'description' => 'Die gängigsten Umlaute ä,ö und ü sowie das ß werden schon standardmäßig umgeformt. Doch gibt es noch weitere Buchstaben, die nicht im deutschen Alphabet vorkommen. Falls einer der angegebenen speziellen Accounts solche Buchstaben besitzt, müssen diese auch umgeformt werden. Hier werden die einzelnen Buchstaben definiert. Wenn nicht vorhanden, dann freilassen.<br>
+Folgendes Schema: å = a; ó = o; ð = d',
             'optionscode' => 'textarea',
             'value' => 'å = a; ó = o; ð = d', // Default
             'disporder' => 8
