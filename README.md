@@ -22,6 +22,6 @@ Das Plugin ist kompatibel mit den klassischen Profilfeldern von MyBB, dem <a hre
 
 # Demo
 <img src="https://stormborn.at/plugins/lastgraphic_settings.png">
-<img src="https://stormborn.at/plugins/ice_uebersicht_user.png">
+<img src="https://stormborn.at/plugins/lastgraphic_user.png">
 <img src="https://stormborn.at/plugins/lastgraphic_gast.png">
 <img src="https://stormborn.at/plugins/lastgraphic_threads.png">
