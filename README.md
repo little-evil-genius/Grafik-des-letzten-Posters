@@ -18,6 +18,6 @@ Das Plugin ist kompatibel mit den klassischen Profilfeldern von MyBB, dem <a hre
 
 # Neue Variable
 - forumbit_depth2_forum_lastpost: {$forum['lastavatar']}
-- forumdisplay_thread: {$forum['lastavatar']}
+- forumdisplay_thread: {$thread['lastavatar']}
 
 # Demo
