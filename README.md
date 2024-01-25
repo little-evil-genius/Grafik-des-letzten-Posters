@@ -17,7 +17,7 @@ Das Plugin ist kompatibel mit den klassischen Profilfeldern von MyBB, dem <a hre
 - spezielle Accounts
 
 # Neues Templatess (nicht global!) 
--  forumbit_depth2_forum_lastpost_avatar (Forum Bit Templates)
+-  forumbit_depth2_forum_lastpost_graphic (Forum Bit Templates)
 -  forumdisplay_thread_lastpost_graphic (Forum Display Templates)
 
 # Neue Variable
