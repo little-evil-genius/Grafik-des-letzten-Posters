@@ -28,7 +28,7 @@ function lastgraphic_install(){
     global $db, $cache, $mybb;
 
 	// EINSTELLUNGEN HINZUFÜGEN
-    $maxdisporder = $db->fetch_field($db->query("SELECT MAX(disporder) FROM ".TABLE_PREFIX."settinggroups"), "MAX(disporder)");
+    $maxdisporder = $db->fetch_field($db->query("SELECT MAX(disporder) FROM ".TABLE_PREFIX."settinggroups"), "MAX(disporder)")+1;
 	$setting_group = array(
 		'name'          => 'lastgraphic',
 		'title'         => 'Grafik des letzten Posters',
