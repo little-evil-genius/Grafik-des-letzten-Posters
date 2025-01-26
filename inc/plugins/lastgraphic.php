@@ -18,7 +18,7 @@ function lastgraphic_info(){
 		'website'	=> 'https://github.com/little-evil-genius/Grafik-des-letzten-Posters',
 		"author"	=> "little.evil.genius",
 		"authorsite"	=> "https://storming-gates.de/member.php?action=profile&uid=1712",
-		"version"	=> "1.0",
+		"version"	=> "1.0.1",
 		"compatibility" => "18*"
 	);
 }
@@ -225,7 +225,7 @@ function lastgraphic_forumbit(&$forum){
     $classicletters = Array("Ä" => "AE", "Ö" => "OE", "Ü" => "UE", "ä" => "ae", "ö" => "oe", "ü" => "ue", "ß" => "ss", "'" => "", "`" => "", "´" => "");
     if (!empty($lastgraphic_specialletters)) {
         $specialletters_setting = str_replace("; ", ";", $lastgraphic_specialletters);
-        $specialletters_array = specialetters_array($specialletters_setting);
+        $specialletters_array = lastgraphic_specialetters_array($specialletters_setting);
     
         $all_specialletters = array_merge($specialletters_array, $classicletters);
     } else {
@@ -235,7 +235,7 @@ function lastgraphic_forumbit(&$forum){
 	// Eigene UID
 	$activeuser_uid = intval($mybb->user['uid']);
 
-    $lastposteruid = get_last_poster_uid($forum['fid']);
+    $lastposteruid = lastgraphic_get_last_poster_uid($forum['fid']);
 
     if ($lastposteruid == 0) {
         $forum['lastpostergraphicurl'] = $theme['imgdir']."/".$defaultgraphic;
@@ -271,7 +271,7 @@ function lastgraphic_forumbit(&$forum){
                     // leerzeichen entfernen
                     $username = str_replace(" ", "", $username);
 
-                    $forum['lastpostergraphicurl'] = find_graphic_format($username);
+                    $forum['lastpostergraphicurl'] = lastgraphic_find_graphic_format($username);
     
                 }
                 // normaler User - normale Grafik
@@ -357,7 +357,7 @@ function lastgraphic_thread() {
     $classicletters = Array("Ä" => "AE", "Ö" => "OE", "Ü" => "UE", "ä" => "ae", "ö" => "oe", "ü" => "ue", "ß" => "ss", "'" => "", "`" => "", "´" => "");
     if (!empty($lastgraphic_specialletters)) {
         $specialletters_setting = str_replace("; ", ";", $lastgraphic_specialletters);
-        $specialletters_array = specialetters_array($specialletters_setting);
+        $specialletters_array = lastgraphic_specialetters_array($specialletters_setting);
     
         $all_specialletters = array_merge($specialletters_array, $classicletters);
     } else {
@@ -404,7 +404,7 @@ function lastgraphic_thread() {
                     // leerzeichen entfernen
                     $username = str_replace(" ", "", $username);
 
-                    $thread['lastpostergraphicurl'] = find_graphic_format($username);
+                    $thread['lastpostergraphicurl'] = lastgraphic_find_graphic_format($username);
     
                 }
                 // normaler User - normale Grafik
@@ -463,7 +463,7 @@ function lastgraphic_thread() {
     eval('$thread[\'lastgraphic\'] = "'.$templates->get('forumdisplay_thread_lastpost_graphic').'";');
 }
 
-function specialetters_array($specialetters_string) {
+function lastgraphic_specialetters_array($specialetters_string) {
 
     $pair_strings = explode(';', $specialetters_string);
 
@@ -477,26 +477,27 @@ function specialetters_array($specialetters_string) {
     return $specialetters_array;
 }
 
-function collect_forum_ids($parent_fid, &$forum_ids) {
+function lastgraphic_collect_forum_ids($parent_fid, &$forum_ids) {
     global $db;
 
     $subforums_query = $db->simple_select("forums", "fid", "pid = '".$parent_fid."'");
 
     while($subforum = $db->fetch_array($subforums_query)) {
         $forum_ids[] = $subforum['fid']; 
-        collect_forum_ids($subforum['fid'], $forum_ids);
+        lastgraphic_collect_forum_ids($subforum['fid'], $forum_ids);
     }
 }
 
-function get_last_poster_uid($fid) {
+function lastgraphic_get_last_poster_uid($fid) {
     global $db;
 
     $forum_ids = array($fid);
 
-    collect_forum_ids($fid, $forum_ids);
+    lastgraphic_collect_forum_ids($fid, $forum_ids);
 
     $last_post_query = $db->query("SELECT p.uid FROM ".TABLE_PREFIX."posts p
     WHERE p.fid IN (".implode(',', $forum_ids).")
+    AND p.visible = '1'
     ORDER BY p.dateline DESC 
     LIMIT 1"
     );
@@ -508,7 +509,7 @@ function get_last_poster_uid($fid) {
     }
 }
 
-function find_graphic_format($username) {
+function lastgraphic_find_graphic_format($username) {
 
     global $mybb, $theme;
 
